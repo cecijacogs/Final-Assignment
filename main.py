@@ -527,12 +527,9 @@ print(comparison_table.round(3).to_string(index=False))
 print("\n7. DELTA PLOT ANALYSIS")
 print("-" * 40)
 
-try:
-    delta_data = read_data('data.csv', prepare_for='delta_plots', display=False)
-    print("✓ Real RT data loaded for delta plots")
-except:
-    delta_data = create_simulated_rt_data()
-    print("✓ Simulated RT data created for delta plots")
+# Use simulated RT data since read_data doesn't handle RT data yet
+delta_data = create_simulated_rt_data()
+print("✓ Simulated RT data created for delta plots")
 
 # Plot delta plots for first few participants
 unique_participants = sorted(delta_data['pnum'].unique())
